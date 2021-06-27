@@ -14,6 +14,7 @@ type Options struct {
 	Verbose        bool // Verbose flag indicates whether to show verbose output or not
 	NoColor        bool // No-Color disables the colored output
 	JSON           bool // JSON specifies whether to use json for output format or text file
+	CSV            bool // CSV specifies whether to use json for output format or text file
 	Silent         bool // Silent suppresses any extra text and only writes found host:port to screen
 	Stdin          bool // Stdin specifies whether stdin input was given to the process
 	Verify         bool // Verify is used to check if the ports found were valid using CONNECT method
@@ -60,6 +61,7 @@ func ParseOptions() *Options {
 	flag.StringVar(&options.PortsFile, "ports-file", "", "File containing ports to enumerate for on hosts")
 	flag.StringVar(&options.Output, "o", "", "File to write output to (optional)")
 	flag.BoolVar(&options.JSON, "json", false, "Write output in JSON lines Format")
+	flag.BoolVar(&options.CSV, "csv", false, "Write output in CSV lines Format")
 	flag.BoolVar(&options.Silent, "silent", false, "Show found ports only in output")
 	flag.IntVar(&options.Retries, "retries", DefaultRetriesSynScan, "Number of retries for the port scan probe")
 	flag.IntVar(&options.Rate, "rate", DefaultRateSynScan, "Rate of port scan probe requests")
