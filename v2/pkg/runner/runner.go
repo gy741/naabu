@@ -374,7 +374,11 @@ func (r *Runner) handleOutput() {
 			if file != nil {
 				if r.options.JSON {
 					err = WriteJSONOutput(host, hostIP, ports, file)
-				} else {
+				}
+				else if r.options.CSV {
+					err = WriteHostOutput(host, ports, file)
+				}
+				else {
 					err = WriteHostOutput(host, ports, file)
 				}
 				if err != nil {
